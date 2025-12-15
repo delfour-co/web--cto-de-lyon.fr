@@ -1,0 +1,78 @@
+---
+import { getEntry } from "astro:content";
+import DefaultLayout from "../layouts/DefaultLayout.astro";
+const content = await getEntry("datas", "lancer-sa-communaute/content");
+---
+
+<DefaultLayout title={content.data.title}>
+  <section class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+    <!-- Hero Section -->
+    <div class="text-center mb-12">
+      <h1 class="text-4xl font-bold mb-4">{content.data.title}</h1>
+      <p class="text-xl text-gray-600 dark:text-gray-400">{content.data.subtitle}</p>
+    </div>
+
+    <!-- Introduction -->
+    <div class="mb-16">
+      <h2 class="text-3xl font-semibold mb-6">{content.data.introduction.title}</h2>
+      {content.data.introduction.content.map((paragraph: string) => (
+        <p class="mb-4 text-lg">{paragraph}</p>
+      ))}
+    </div>
+
+    <!-- Steps -->
+    <div class="mb-16">
+      <h2 class="text-3xl font-semibold mb-8">{content.data.steps.title}</h2>
+      <div class="space-y-8">
+        {content.data.steps.items.map((step: any, index: number) => (
+          <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+            <h3 class="text-2xl font-semibold mb-3">{step.title}</h3>
+            <p class="text-lg">{step.content}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Values -->
+    <div class="mb-16">
+      <h2 class="text-3xl font-semibold mb-8">{content.data.values.title}</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {content.data.values.items.map((value: any) => (
+          <div class="border border-gray-200 dark:border-gray-700 p-6 rounded-lg">
+            <h3 class="text-xl font-semibold mb-3">{value.title}</h3>
+            <p class="text-gray-700 dark:text-gray-300">{value.content}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Resources -->
+    <div class="mb-16 bg-blue-50 dark:bg-blue-900/20 p-8 rounded-lg">
+      <h2 class="text-3xl font-semibold mb-6">{content.data.resources.title}</h2>
+      {content.data.resources.content.map((paragraph: string) => (
+        <p class="mb-4 text-lg">{paragraph}</p>
+      ))}
+      <div class="mt-6">
+        <a
+          href={content.data.resources.action.url}
+          class="inline-block bg-blue-700 text-white px-6 py-3 rounded-lg hover:bg-blue-800 transition-colors"
+        >
+          {content.data.resources.action.title}
+        </a>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="text-center">
+      <h2 class="text-3xl font-semibold mb-4">{content.data.contact.title}</h2>
+      <p class="text-lg mb-6">{content.data.contact.content}</p>
+      <a
+        href={content.data.contact.action.url}
+        class="inline-block bg-primary-700 text-white px-6 py-3 rounded-lg hover:bg-primary-800 transition-colors"
+      >
+        {content.data.contact.action.title}
+      </a>
+    </div>
+  </section>
+</DefaultLayout>
+

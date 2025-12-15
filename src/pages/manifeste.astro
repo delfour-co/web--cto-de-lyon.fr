@@ -1,0 +1,58 @@
+---
+import { getEntry } from "astro:content";
+import MinimalLayout from "../layouts/MinimalLayout.astro";
+const content = await getEntry("datas", "manifeste/content");
+---
+
+<MinimalLayout title={content.data.title}>
+  <section class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <h1 class="text-4xl font-bold mb-4">{content.data.title}</h1>
+      <p class="text-xl text-gray-600 dark:text-gray-400 mb-2">{content.data.subtitle}</p>
+      <div class="text-sm text-gray-500 dark:text-gray-400">
+        Dernière mise à jour : <span class="font-semibold">{content.data.lastUpdated}</span>
+      </div>
+    </div>
+
+    <!-- Introduction -->
+    <div class="mb-12 mx-10 px-10">
+      {content.data.introduction.content.map((paragraph: string) => (
+        <p class="mb-4 text-lg">{paragraph}</p>
+      ))}
+    </div>
+
+    <!-- Principles -->
+    <div class="space-y-12 mb-16">
+      {content.data.principles.map((principle: any, index: number) => (
+        <div class="mx-10 px-10">
+          <h2 class="text-2xl font-semibold mb-4">{principle.title}</h2>
+          {principle.content.map((paragraph: string) => (
+            <p class="mb-4 text-lg">{paragraph}</p>
+          ))}
+        </div>
+      ))}
+    </div>
+
+    <!-- Commitment -->
+    <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-lg mb-12 mx-10 px-10">
+      <h2 class="text-2xl font-semibold mb-6">{content.data.commitment.title}</h2>
+      {content.data.commitment.content.map((paragraph: string) => (
+        <p class="mb-4 text-lg">{paragraph}</p>
+      ))}
+    </div>
+
+    <!-- Contact -->
+    <div class="text-center mx-10 px-10">
+      <h2 class="text-2xl font-semibold mb-4">{content.data.contact.title}</h2>
+      <p class="text-lg mb-6">{content.data.contact.content}</p>
+      <a
+        href={content.data.contact.action.url}
+        class="inline-block bg-blue-700 text-white px-6 py-3 rounded-lg hover:bg-blue-800 transition-colors"
+      >
+        {content.data.contact.action.title}
+      </a>
+    </div>
+  </section>
+</MinimalLayout>
+
