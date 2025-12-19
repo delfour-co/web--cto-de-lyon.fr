@@ -1,6 +1,7 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import ScrollToTop from "../components/ScrollToTop.astro";
 import Analytics from "@vercel/analytics/astro";
 import "../assets/styles/animations.css";
 interface Props {
@@ -38,6 +39,7 @@ const { title } = Astro.props;
       <slot />
     </main>
     <Footer />
+    <ScrollToTop />
   </body>
   
   <script src="https://unpkg.com/website-carbon-badges@1.1.3/b.min.js" defer
