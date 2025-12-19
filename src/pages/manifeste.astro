@@ -11,9 +11,9 @@ const content = await getEntry("datas", "manifeste/content");
       <h1 class="text-4xl lg:text-5xl font-extrabold mb-6 bg-gradient-to-r from-primary-400 via-pink-400 to-secondary-400 bg-clip-text text-transparent">
         {content.data.title}
       </h1>
-      <p class="text-xl text-gray-300 mb-4">{content.data.subtitle}</p>
-      <div class="text-sm text-gray-400">
-        Dernière mise à jour : <span class="font-semibold text-gray-300">{content.data.lastUpdated}</span>
+      <p class="text-xl text-gray-300 dark:text-gray-300 text-gray-800 mb-4">{content.data.subtitle}</p>
+      <div class="text-sm text-gray-400 dark:text-gray-400 text-gray-700">
+        Dernière mise à jour : <span class="font-semibold text-gray-300 dark:text-gray-300 text-gray-800">{content.data.lastUpdated}</span>
       </div>
     </div>
 
@@ -22,7 +22,7 @@ const content = await getEntry("datas", "manifeste/content");
       <div class="glass rounded-2xl p-8 lg:p-12 shadow-xl backdrop-blur-lg">
         <div class="space-y-4">
           {content.data.introduction.content.map((paragraph: string, index: number) => (
-            <p class="mb-4 text-lg text-gray-300 leading-relaxed">{paragraph}</p>
+            <p class="mb-4 text-lg text-gray-300 dark:text-gray-300 text-gray-800 leading-relaxed">{paragraph}</p>
           ))}
         </div>
       </div>
@@ -33,10 +33,10 @@ const content = await getEntry("datas", "manifeste/content");
       {content.data.principles.map((principle: any, index: number) => (
         <div class="fade-in-on-scroll" style={`animation-delay: ${index * 0.1}s;`}>
           <div class="glass rounded-xl p-6 lg:p-8 shadow-lg hover:shadow-xl transition-all duration-300 card-3d border-l-4 border-primary-500">
-            <h2 class="text-2xl lg:text-3xl font-bold mb-4 text-white">{principle.title}</h2>
+            <h2 class="text-2xl lg:text-3xl font-bold mb-4 text-white dark:text-white text-gray-900">{principle.title}</h2>
             <div class="space-y-4">
               {principle.content.map((paragraph: string) => (
-                <p class="mb-4 text-lg text-gray-300 leading-relaxed">{paragraph}</p>
+                <p class="mb-4 text-lg text-gray-300 dark:text-gray-300 text-gray-800 leading-relaxed">{paragraph}</p>
               ))}
             </div>
           </div>
@@ -52,7 +52,7 @@ const content = await getEntry("datas", "manifeste/content");
         </h2>
         <div class="space-y-4">
           {content.data.commitment.content.map((paragraph: string) => (
-            <p class="mb-4 text-lg text-gray-300 leading-relaxed">{paragraph}</p>
+            <p class="mb-4 text-lg text-gray-300 dark:text-gray-300 text-gray-800 leading-relaxed">{paragraph}</p>
           ))}
         </div>
       </div>
@@ -64,7 +64,7 @@ const content = await getEntry("datas", "manifeste/content");
         <h2 class="text-2xl lg:text-3xl font-bold mb-4 bg-gradient-to-r from-primary-400 via-pink-400 to-secondary-400 bg-clip-text text-transparent">
           {content.data.contact.title}
         </h2>
-        <p class="text-lg mb-8 text-gray-300">{content.data.contact.content}</p>
+        <p class="text-lg mb-8 text-gray-300 dark:text-gray-300 text-gray-800">{content.data.contact.content}</p>
         <a
           href={content.data.contact.action.url}
           class="group inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white rounded-xl bg-gradient-to-r from-primary-600 to-pink-500 hover:from-primary-700 hover:to-pink-600 focus:ring-4 focus:ring-primary-300 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 relative overflow-hidden"

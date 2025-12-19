@@ -1,9 +1,10 @@
 ---
+import ThemeToggle from "./ThemeToggle.astro";
 const { hideMenu } = Astro.props;
 ---
 
 <header class="sticky top-0 z-50">
-  <nav class="glass border-b border-white/10 px-4 lg:px-6 py-3 shadow-lg bg-gray-900/80 backdrop-blur-lg">
+  <nav class="glass border-b border-white/10 dark:border-white/10 border-gray-300 px-4 lg:px-6 py-3 shadow-lg bg-gray-900/80 dark:bg-gray-900/80 bg-white/95 backdrop-blur-lg">
     <div
       class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl"
     >
@@ -31,7 +32,7 @@ const { hideMenu } = Astro.props;
             <!-- Bouton hamburger pour mobile -->
             <button
               type="button"
-              class="inline-flex items-center p-2 ml-1 text-sm text-gray-300 rounded-lg lg:hidden hover:bg-gradient-to-r hover:from-primary-600/20 hover:to-pink-500/20 focus:outline-none focus:ring-2 focus:ring-primary-500/50 transition-all duration-300"
+              class="inline-flex items-center p-2 ml-1 text-sm text-gray-300 dark:text-gray-300 text-gray-800 rounded-lg lg:hidden hover:bg-gradient-to-r hover:from-primary-600/20 hover:to-pink-500/20 focus:outline-none focus:ring-2 focus:ring-primary-500/50 transition-all duration-300"
               aria-controls="mobile-menu-2"
               aria-expanded="false"
               id="mobile-menu-button"
@@ -67,14 +68,14 @@ const { hideMenu } = Astro.props;
 
             <!-- Menu mobile et desktop -->
             <div
-              class="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1"
+              class="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1 lg:gap-3"
               id="mobile-menu-2"
             >
-              <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-2 lg:mt-0 glass rounded-lg p-2 lg:p-0 lg:bg-transparent lg:shadow-none lg:backdrop-blur-none border border-white/10 lg:border-0">
+              <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-2 lg:mt-0 glass rounded-lg p-2 lg:p-0 lg:bg-transparent lg:shadow-none lg:backdrop-blur-none border border-white/10 dark:border-white/10 border-gray-200 lg:border-0">
                 <li>
                   <a
                     href="/#hero"
-                    class="block py-2 px-4 rounded-lg text-gray-300 hover:bg-gradient-to-r hover:from-primary-600 hover:to-pink-500 hover:text-white transition-all duration-300 lg:p-2"
+                    class="block py-2 px-4 rounded-lg text-gray-300 dark:text-gray-300 text-gray-700 hover:bg-gradient-to-r hover:from-primary-600 hover:to-pink-500 hover:text-white transition-all duration-300 lg:p-2"
                     aria-current="page"
                   >
                     Accueil
@@ -83,7 +84,7 @@ const { hideMenu } = Astro.props;
                 <li>
                   <a
                     href="/#mission"
-                    class="block py-2 px-4 rounded-lg text-gray-300 hover:bg-gradient-to-r hover:from-primary-600 hover:to-pink-500 hover:text-white transition-all duration-300 lg:p-2"
+                    class="block py-2 px-4 rounded-lg text-gray-300 dark:text-gray-300 text-gray-700 hover:bg-gradient-to-r hover:from-primary-600 hover:to-pink-500 hover:text-white transition-all duration-300 lg:p-2"
                   >
                     Notre mission
                   </a>
@@ -91,7 +92,7 @@ const { hideMenu } = Astro.props;
                 <li>
                   <a
                     href="/#team"
-                    class="block py-2 px-4 rounded-lg text-gray-300 hover:bg-gradient-to-r hover:from-primary-600 hover:to-pink-500 hover:text-white transition-all duration-300 lg:p-2"
+                    class="block py-2 px-4 rounded-lg text-gray-300 dark:text-gray-300 text-gray-700 hover:bg-gradient-to-r hover:from-primary-600 hover:to-pink-500 hover:text-white transition-all duration-300 lg:p-2"
                   >
                     Notre équipe
                   </a>
@@ -99,7 +100,7 @@ const { hideMenu } = Astro.props;
                 <li>
                   <a
                     href="/#events"
-                    class="block py-2 px-4 rounded-lg text-gray-300 hover:bg-gradient-to-r hover:from-primary-600 hover:to-pink-500 hover:text-white transition-all duration-300 lg:p-2"
+                    class="block py-2 px-4 rounded-lg text-gray-300 dark:text-gray-300 text-gray-700 hover:bg-gradient-to-r hover:from-primary-600 hover:to-pink-500 hover:text-white transition-all duration-300 lg:p-2"
                   >
                     Évènements
                   </a>
@@ -107,7 +108,7 @@ const { hideMenu } = Astro.props;
                 <li>
                   <a
                     href="/#join-us"
-                    class="block py-2 px-4 rounded-lg text-gray-300 hover:bg-gradient-to-r hover:from-primary-600 hover:to-pink-500 hover:text-white transition-all duration-300 lg:p-2"
+                    class="block py-2 px-4 rounded-lg text-gray-300 dark:text-gray-300 text-gray-700 hover:bg-gradient-to-r hover:from-primary-600 hover:to-pink-500 hover:text-white transition-all duration-300 lg:p-2"
                   >
                     Nous rejoindre
                   </a>
@@ -115,7 +116,7 @@ const { hideMenu } = Astro.props;
                 <li>
                   <a
                     href="/lancer-sa-communaute"
-                    class="block py-2 px-4 rounded-lg text-gray-300 hover:bg-gradient-to-r hover:from-primary-600 hover:to-pink-500 hover:text-white transition-all duration-300 lg:p-2"
+                    class="block py-2 px-4 rounded-lg text-gray-300 dark:text-gray-300 text-gray-700 hover:bg-gradient-to-r hover:from-primary-600 hover:to-pink-500 hover:text-white transition-all duration-300 lg:p-2"
                   >
                     Lancer sa communauté
                   </a>
@@ -123,38 +124,42 @@ const { hideMenu } = Astro.props;
                 <li>
                   <a
                     href="/manifeste"
-                    class="block py-2 px-4 rounded-lg text-gray-300 hover:bg-gradient-to-r hover:from-primary-600 hover:to-pink-500 hover:text-white transition-all duration-300 lg:p-2"
+                    class="block py-2 px-4 rounded-lg text-gray-300 dark:text-gray-300 text-gray-700 hover:bg-gradient-to-r hover:from-primary-600 hover:to-pink-500 hover:text-white transition-all duration-300 lg:p-2"
                   >
                     Manifeste
                   </a>
                 </li>
-                <li class="hidden lg:block">
-                  <button
-                    id="accessibility-toggle-desktop"
-                    class="bg-primary-600 hover:bg-primary-700 text-white rounded-full p-2.5 shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-offset-2 focus:ring-offset-gray-900"
-                    aria-label="Ouvrir les paramètres d'accessibilité"
-                    aria-expanded="false"
-                    aria-controls="accessibility-overlay"
-                    type="button"
-                  >
-                    <svg
-                      class="w-5 h-5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                      aria-hidden="true"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
-                      ></path>
-                    </svg>
-                  </button>
-                </li>
               </ul>
+              <!-- Boutons desktop (à côté du menu) -->
+              <div class="hidden lg:flex items-center gap-2">
+                <!-- Toggle de thème -->
+                <ThemeToggle />
+                <!-- Bouton d'accessibilité -->
+                <button
+                  id="accessibility-toggle-desktop"
+                  class="bg-primary-600 hover:bg-primary-700 text-white rounded-full p-2.5 shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-offset-2 focus:ring-offset-gray-900"
+                  aria-label="Ouvrir les paramètres d'accessibilité"
+                  aria-expanded="false"
+                  aria-controls="accessibility-overlay"
+                  type="button"
+                >
+                  <svg
+                    class="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
             </div>
           </>
         )
