@@ -12,30 +12,32 @@ interface Props {
 const { data } = Astro.props;
 ---
 
-<section class="rounded-lg bg-gray-100 dark:bg-gray-800">
-  <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
-    <h2
-      class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white"
-      set:html={data.title}
-    />
-    <p
-      class="mb-8 lg:mb-16 font-light text-center sm:text-xl"
-      set:html={data.content}
-    />
+<section class="relative py-16 px-4 mx-auto max-w-screen-md lg:py-24">
+  <div class="glass rounded-2xl p-8 lg:p-12 shadow-xl backdrop-blur-lg fade-in-on-scroll">
+      <h2
+        class="mb-6 text-4xl lg:text-5xl tracking-tight font-extrabold text-center bg-gradient-to-r from-primary-400 via-pink-400 to-secondary-400 bg-clip-text text-transparent"
+        set:html={data.title}
+      />
+      <p
+        class="mb-10 lg:mb-12 font-light text-center sm:text-xl text-gray-300"
+        set:html={data.content}
+      />
     <div class="flex justify-center">
       <a
         href={data.action.url}
-        class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center border border-gray-300 rounded-lg bg-blue-600 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
+        class="group inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white rounded-xl bg-gradient-to-r from-primary-600 to-pink-500 hover:from-primary-700 hover:to-pink-600 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-800 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 relative overflow-hidden"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="w-10 h-10"
+          class="w-6 h-6 mr-3 transition-transform group-hover:scale-110"
           viewBox="0 0 24 24"
           ><path
             fill="currentColor"
             d="M4.616 19q-.691 0-1.153-.462T3 17.384V6.616q0-.691.463-1.153T4.615 5h14.77q.69 0 1.152.463T21 6.616v10.769q0 .69-.463 1.153T19.385 19zM12 12.116L4 6.885v10.5q0 .269.173.442t.443.173h14.769q.269 0 .442-.173t.173-.443v-10.5zM12 11l7.692-5H4.308zM4 6.885V6v11.385q0 .269.173.442t.443.173H4z"
           ></path></svg
-        >&nbsp;{data.action.title}
+        >
+        <span class="relative z-10">{data.action.title}</span>
+        <div class="absolute inset-0 bg-gradient-to-r from-pink-500 to-primary-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
       </a>
     </div>
   </div>

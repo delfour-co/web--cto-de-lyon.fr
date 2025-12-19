@@ -21,25 +21,31 @@ if (!images[imageUrl])
   );
 ---
 
-<div class="text-center">
-  <!--  -->
-  <Image
-    class="mx-auto mb-4 w-36 h-36 rounded-full"
-    src={images[imageUrl]()}
-    }
-    alt={fullName}
-  />
-  <h3 class="mb-1 text-2xl font-bold tracking-tight">
+<div class="text-center group">
+  <div class="relative inline-block mb-6">
+    <div class="absolute inset-0 bg-gradient-to-r from-primary-500 to-pink-500 rounded-full blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
+    <div class="relative p-1 bg-gradient-to-r from-primary-500 to-pink-500 rounded-full">
+      <Image
+        class="mx-auto w-36 h-36 rounded-full border-4 border-gray-800 transform group-hover:scale-110 transition-transform duration-300"
+        src={images[imageUrl]()}
+        alt={fullName}
+      />
+    </div>
+  </div>
+  <h3 class="mb-2 text-2xl font-bold tracking-tight text-white group-hover:text-primary-400 transition-colors">
     {fullName}
   </h3>
-  <p class="text-sm">{role}</p>
+  <p class="text-sm text-gray-400 mb-4">{role}</p>
   <ul class="flex justify-center mt-4 space-x-4">
     {
       links.map((link) => (
         <li>
           <a
             href={link.url}
-            class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-gray-400 hover:text-primary-400 transition-colors duration-300 transform hover:scale-110 inline-block"
+            aria-label={`${link.name} de ${fullName}`}
           >
             <svg
               class="w-6 h-6"
