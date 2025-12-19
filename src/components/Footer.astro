@@ -1,10 +1,13 @@
-<footer class="p-4 sm:p-6">
-  <div class="mx-auto max-w-screen-xl">
-    <div class="md:flex md:justify-between">
+<footer class="relative mt-16 p-8 sm:p-12">
+  <!-- Background avec gradient subtil -->
+  <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-primary-900/20 to-pink-900/20"></div>
+  
+  <div class="relative mx-auto max-w-screen-xl">
+    <div class="md:flex md:justify-between mb-8">
       <div class="mb-6 md:mb-0">
-        <a href="https://flowbite.com" class="flex items-center">
+        <a href="/" class="flex items-center group">
           <svg
-            class="w-10 h-10 mr-2"
+            class="w-10 h-10 mr-2 text-primary-400 transition-transform group-hover:scale-110 group-hover:rotate-12"
             xmlns="http://www.w3.org/2000/svg"
             width="1em"
             height="1em"
@@ -15,7 +18,7 @@
             ></path></svg
           >
           <span
-            class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
+            class="self-center text-2xl font-bold bg-gradient-to-r from-primary-400 to-pink-400 bg-clip-text text-transparent"
             >CTO de Lyon</span
           >
         </a>
@@ -23,26 +26,23 @@
       <div>
         <div>
           <h2
-            class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white"
+            class="mb-6 text-sm font-semibold text-white uppercase"
           >
             Mentions légales
           </h2>
-          <ul class="text-gray-600 dark:text-gray-400">
+          <ul class="text-gray-400">
             <li class="mb-4">
-              <a href="/privacy-policy" class="hover:underline">
+              <a href="/privacy-policy" class="hover:text-primary-400 transition-colors duration-300">
                 Politique de confidentialité
               </a>
             </li>
           </ul>
         </div>
       </div>
-      <div>
-        
-      </div>
     </div>
-    <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-    <div class="sm:flex sm:items-center sm:justify-between">
-      <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400"
+    <hr class="my-8 border-gray-700 sm:mx-auto" />
+    <div class="sm:flex sm:items-center sm:justify-between flex-wrap gap-4">
+      <span class="text-sm text-gray-400 sm:text-center"
         >© {new Date().getFullYear()} CTO De Lyon. All Rights Reserved.
       </span>
       
@@ -52,7 +52,9 @@
         <a
           href="https://www.linkedin.com/groups/12921552/"
           target="_blank"
-          class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+          rel="noopener noreferrer"
+          class="text-gray-400 hover:text-primary-400 transition-colors duration-300 transform hover:scale-110"
+          aria-label="LinkedIn de la communauté CTO de Lyon"
         >
           <svg
             class="w-10 h-10"

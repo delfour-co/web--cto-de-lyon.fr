@@ -1,0 +1,106 @@
+---
+import { getEntry } from "astro:content";
+import DefaultLayout from "../layouts/DefaultLayout.astro";
+const content = await getEntry("datas", "lancer-sa-communaute/content");
+---
+
+<DefaultLayout title={content.data.title}>
+  <section class="py-16 px-4 mx-auto max-w-screen-xl lg:py-24 lg:px-6">
+    <!-- Hero Section -->
+    <div class="text-center mb-16 fade-in-on-scroll">
+      <h1 class="text-4xl lg:text-5xl font-extrabold mb-6 bg-gradient-to-r from-primary-400 via-pink-400 to-secondary-400 bg-clip-text text-transparent">
+        {content.data.title}
+      </h1>
+      <p class="text-xl text-gray-300">{content.data.subtitle}</p>
+    </div>
+
+    <!-- Introduction -->
+    <div class="mb-16 fade-in-on-scroll">
+      <div class="glass rounded-2xl p-8 lg:p-12 shadow-xl backdrop-blur-lg">
+        <h2 class="text-3xl lg:text-4xl font-extrabold mb-6 bg-gradient-to-r from-primary-400 via-pink-400 to-secondary-400 bg-clip-text text-transparent">
+          {content.data.introduction.title}
+        </h2>
+        <div class="space-y-4">
+          {content.data.introduction.content.map((paragraph: string, index: number) => (
+            <p class="mb-4 text-lg text-gray-300 leading-relaxed">{paragraph}</p>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Steps -->
+    <div class="mb-16 fade-in-on-scroll">
+      <h2 class="text-3xl lg:text-4xl font-extrabold mb-8 bg-gradient-to-r from-primary-400 via-pink-400 to-secondary-400 bg-clip-text text-transparent">
+        {content.data.steps.title}
+      </h2>
+      <div class="space-y-6">
+        {content.data.steps.items.map((step: any, index: number) => (
+          <div class="glass rounded-xl p-6 lg:p-8 shadow-lg hover:shadow-xl transition-all duration-300 card-3d" style={`animation-delay: ${index * 0.1}s;`}>
+            <h3 class="text-2xl font-bold mb-3 text-white">{step.title}</h3>
+            <p class="text-lg text-gray-300 leading-relaxed">{step.content}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Values -->
+    <div class="mb-16 fade-in-on-scroll">
+      <h2 class="text-3xl lg:text-4xl font-extrabold mb-8 bg-gradient-to-r from-primary-400 via-pink-400 to-secondary-400 bg-clip-text text-transparent">
+        {content.data.values.title}
+      </h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {content.data.values.items.map((value: any, index: number) => (
+          <div class="glass rounded-xl p-6 border-l-4 border-primary-500 shadow-lg hover:shadow-xl transition-all duration-300 card-3d" style={`animation-delay: ${index * 0.1}s;`}>
+            <h3 class="text-xl font-bold mb-3 text-white">{value.title}</h3>
+            <p class="text-gray-300 leading-relaxed">{value.content}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Resources -->
+    <div class="mb-16 glass rounded-2xl p-8 lg:p-12 shadow-xl backdrop-blur-lg fade-in-on-scroll">
+      <h2 class="text-3xl lg:text-4xl font-extrabold mb-6 bg-gradient-to-r from-primary-400 via-pink-400 to-secondary-400 bg-clip-text text-transparent">
+        {content.data.resources.title}
+      </h2>
+      <div class="space-y-4 mb-6">
+        {content.data.resources.content.map((paragraph: string) => (
+          <p class="mb-4 text-lg text-gray-300 leading-relaxed">{paragraph}</p>
+        ))}
+      </div>
+      <div class="mt-6">
+        <a
+          href={content.data.resources.action.url}
+          class="group inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white rounded-xl bg-gradient-to-r from-primary-600 to-pink-500 hover:from-primary-700 hover:to-pink-600 focus:ring-4 focus:ring-primary-300 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 relative overflow-hidden"
+        >
+          <span class="relative z-10">{content.data.resources.action.title}</span>
+          <svg class="w-5 h-5 ml-2 relative z-10 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+          </svg>
+          <div class="absolute inset-0 bg-gradient-to-r from-pink-500 to-primary-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="text-center fade-in-on-scroll">
+      <div class="glass rounded-2xl p-8 lg:p-12 shadow-xl backdrop-blur-lg">
+        <h2 class="text-3xl lg:text-4xl font-extrabold mb-4 bg-gradient-to-r from-primary-400 via-pink-400 to-secondary-400 bg-clip-text text-transparent">
+          {content.data.contact.title}
+        </h2>
+        <p class="text-lg mb-8 text-gray-300">{content.data.contact.content}</p>
+        <a
+          href={content.data.contact.action.url}
+          class="group inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white rounded-xl bg-gradient-to-r from-primary-600 to-pink-500 hover:from-primary-700 hover:to-pink-600 focus:ring-4 focus:ring-primary-300 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 relative overflow-hidden"
+        >
+          <svg class="w-5 h-5 mr-2 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+          </svg>
+          <span class="relative z-10">{content.data.contact.action.title}</span>
+          <div class="absolute inset-0 bg-gradient-to-r from-pink-500 to-primary-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        </a>
+      </div>
+    </div>
+  </section>
+</DefaultLayout>
+

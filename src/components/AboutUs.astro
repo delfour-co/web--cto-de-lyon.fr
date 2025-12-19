@@ -11,29 +11,43 @@ interface Props {
 }
 const { data } = Astro.props;
 ---
-<section>
+<section class="relative py-16 px-4 mx-auto max-w-screen-xl lg:py-24 lg:px-6">
   <div
-    class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6"
+    class="gap-16 items-center lg:grid lg:grid-cols-2"
   >
-    <div class="font-light sm:text-lg">
+    <div class="font-light sm:text-lg fade-in-on-scroll mb-12 lg:mb-0">
       <h2
-        class="mb-4 text-4xl tracking-tight font-extrabold"
+        class="mb-6 text-4xl lg:text-5xl tracking-tight font-extrabold bg-gradient-to-r from-primary-400 via-pink-400 to-secondary-400 bg-clip-text text-transparent"
         set:html={data.title}
       />
 
-      {
-        data.content.map((data: unknown) => (
-          <p class="mb-8 font-light sm:text-xl">{data}</p>
-        ))
-      }
+      <div class="space-y-6">
+        {
+          data.content.map((content: unknown, index: number) => (
+            <p class="font-light sm:text-xl text-gray-300 leading-relaxed" style={`animation-delay: ${index * 0.1}s;`}>
+              {content}
+            </p>
+          ))
+        }
+      </div>
     </div>
-    <div class="grid grid-cols-2 gap-4 mt-8">
-      <Image class="w-full rounded-lg" src={img1} alt="office content 1" />
-      <Image
-        class="mt-4 w-full lg:mt-10 rounded-lg"
-        src={img2}
-        alt="office content 2"
-      />
+    <div class="grid grid-cols-2 gap-4 fade-in-on-scroll">
+      <div class="relative group">
+        <Image 
+          class="w-full rounded-2xl shadow-lg group-hover:shadow-xl transition-all duration-300 transform group-hover:scale-105" 
+          src={img1} 
+          alt="office content 1" 
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-primary-600/20 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      </div>
+      <div class="relative group mt-8 lg:mt-12">
+        <Image
+          class="w-full rounded-2xl shadow-lg group-hover:shadow-xl transition-all duration-300 transform group-hover:scale-105"
+          src={img2}
+          alt="office content 2"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-pink-600/20 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      </div>
     </div>
   </div>
 </section>
