@@ -30,6 +30,9 @@ jobs:
       
       - name: Build
         run: npm run build
+        env:
+          # Si vous utilisez un domaine personnalisé, changez cette valeur en "/"
+          ASTRO_BASE: "/web--cto-de-lyon.fr/"
       
       - name: Setup Pages
         uses: actions/configure-pages@v4

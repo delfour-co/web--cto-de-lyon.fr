@@ -7,9 +7,10 @@ import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
   site: "https://www.cto-de-lyon.fr",
-  // Si votre repository GitHub n'est pas "username.github.io", 
-  // décommentez la ligne suivante et remplacez "nom-du-repo" par le nom de votre repository
-  // base: "/nom-du-repo",
+  // Base path pour GitHub Pages
+  // Si vous utilisez un domaine personnalisé configuré dans GitHub Pages,
+  // changez cette valeur en "/" ou définissez la variable d'environnement ASTRO_BASE="/"
+  base: process.env.ASTRO_BASE || "/web--cto-de-lyon.fr/",
   integrations: [tailwind(), sitemap()],
   output: "static",
 });
