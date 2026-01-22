@@ -100,7 +100,7 @@
         "content": [
           {
             "type": "paragraph",
-            "text": "Le site de la Communauté CTO de Lyon est un site statique hébergé sur Vercel. Aucune donnée personnelle n’est stockée directement sur ce site."
+            "text": "Le site de la Communauté CTO de Lyon est un site statique hébergé sur GitHub Pages. Aucune donnée personnelle n’est stockée directement sur ce site."
           }
         ]
       },

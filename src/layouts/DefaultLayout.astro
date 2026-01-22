@@ -3,7 +3,6 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import ScrollToTop from "../components/ScrollToTop.astro";
 import AccessibilityPanel from "../components/AccessibilityPanel.astro";
-import Analytics from "@vercel/analytics/astro";
 import "../assets/styles/animations.css";
 import "../assets/styles/accessibility.css";
 interface Props {
@@ -23,7 +22,6 @@ const { title } = Astro.props;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/open-dyslexic@1.0.3/open-dyslexic.css" />
-    <Analytics />
     <script is:inline>
       // Appliquer le thème immédiatement pour éviter le flash
       (function() {
