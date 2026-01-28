@@ -24,3 +24,11 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Added by repolens
+*.key
+*.pem
+.npm/
+.yarn/
+.pnpm-store/
+build/
