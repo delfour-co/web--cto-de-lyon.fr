@@ -1,34 +1,18 @@
-# build output
-dist/
-# generated types
-.astro/
-# vercel
-.vercel/
+# Hugo
+public/
+resources/_gen/
+.hugo_build.lock
 
-# dependencies
+# Dependencies
 node_modules/
 
-# logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-
-
-# environment variables
+# Environment
 .env
-.env.production
+.env.*
 
-# macOS-specific files
+# OS
 .DS_Store
 
-# jetbrains setting folder
+# IDE
 .idea/
-
-# Added by repolens
-*.key
-*.pem
-.npm/
-.yarn/
-.pnpm-store/
-build/
+.vscode/

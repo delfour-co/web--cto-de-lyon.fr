@@ -1,0 +1,23 @@
+baseURL = 'https://cto-de-lyon.fr/'
+languageCode = 'fr-fr'
+title = 'CTO de Lyon'
+defaultContentLanguage = 'fr'
+theme = 'hugoplate'
+
+[outputs]
+home = ["HTML", "RSS"]
+
+# Styles personnalisés (scroll smooth + bouton retour en haut)
+[[params.plugins.css]]
+link = "css/scroll.css"
+lazy = false
+
+# Font Awesome - icônes réseaux sociaux (LinkedIn, GitHub, etc.)
+[[params.plugins.css]]
+link = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+lazy = false
+
+# JS Plugins - Swiper requis pour le slider des témoignages (home.html)
+[[params.plugins.js]]
+link = "plugins/swiper/swiper-bundle.js"
+lazy = false
