@@ -1,0 +1,85 @@
+{{- /* Schema.org JSON-LD structured data for SEO */ -}}
+
+{{- $baseURL := site.BaseURL | strings.TrimRight "/" -}}
+{{- $data := index site.Data "cto-de-lyon" -}}
+
+{{- /* 1. Organization — all pages */ -}}
+{{- $description := "" -}}
+{{- with $data.introduction -}}
+  {{- $description = index .content 0 -}}
+{{- end -}}
+{{- $org := dict
+  "@context" "https://schema.org"
+  "@type" "Organization"
+  "name" "CTO de Lyon"
+  "url" $baseURL
+  "logo" (printf "%s/images/favicon.svg" $baseURL)
+  "description" $description
+  "contactPoint" (dict
+    "@type" "ContactPoint"
+    "email" "contact@cto-de-lyon.fr"
+    "contactType" "customer service"
+  )
+  "sameAs" (slice
+    "https://www.linkedin.com/groups/12921552/"
+    "https://github.com/cto-de-lyon"
+  )
+-}}
+<script type="application/ld+json">
+  {{- $org | jsonify | safeJS -}}
+</script>
+
+{{- /* 2. WebSite — all pages */ -}}
+{{- $website := dict
+  "@context" "https://schema.org"
+  "@type" "WebSite"
+  "name" site.Title
+  "url" $baseURL
+  "inLanguage" "fr-FR"
+  "publisher" (dict
+    "@type" "Organization"
+    "name" "CTO de Lyon"
+    "url" $baseURL
+  )
+-}}
+<script type="application/ld+json">
+  {{- $website | jsonify | safeJS -}}
+</script>
+
+{{- /* 3. Event — homepage only, one block per Luma event */ -}}
+{{- if .IsHome -}}
+  {{- $lumaEvents := index site.Data "luma-events" -}}
+  {{- if and $lumaEvents $lumaEvents.events -}}
+    {{- range $lumaEvents.events -}}
+      {{- $event := dict
+        "@context" "https://schema.org"
+        "@type" "Event"
+        "name" .name
+        "startDate" .startAt
+        "eventAttendanceMode" "https://schema.org/OfflineEventAttendanceMode"
+        "eventStatus" "https://schema.org/EventScheduled"
+        "location" (dict
+          "@type" "Place"
+          "name" .city
+          "address" (dict
+            "@type" "PostalAddress"
+            "addressLocality" .city
+            "addressCountry" "FR"
+          )
+        )
+        "url" .url
+        "organizer" (dict
+          "@type" "Organization"
+          "name" "CTO de Lyon"
+          "url" $baseURL
+        )
+      -}}
+      {{- with .coverUrl -}}
+        {{- $event = merge $event (dict "image" .) -}}
+      {{- end }}
+<script type="application/ld+json">
+  {{- $event | jsonify | safeJS -}}
+</script>
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
