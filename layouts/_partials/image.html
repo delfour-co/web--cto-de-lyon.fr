@@ -1,9 +1,53 @@
-{{ $imagePath := .Src }}
-{{ $class := .Class }}
-{{ $alt := .Alt | default "Image" }}
-{{ $loading := .Loading | default "lazy" }}
+{{- $src := .Src -}}
+{{- $class := .Class -}}
+{{- $alt := .Alt | default "Image" -}}
+{{- $loading := .Loading | default "lazy" -}}
+{{- $size := .Size -}}
 
-{{ if $imagePath }}
-  {{ $src := $imagePath | absURL }}
-  <img src="{{ $src }}" alt="{{ $alt }}" class="{{ $class }}" loading="{{ $loading }}">
-{{ end }}
+{{- if $src -}}
+  {{- $isProcessable := false -}}
+  {{- $resource := false -}}
+
+  {{/* Try to resolve the image as a Hugo resource from assets/ */}}
+  {{- $assetPath := "" -}}
+  {{- if hasPrefix $src "/" -}}
+    {{- $assetPath = strings.TrimPrefix "/" $src -}}
+  {{- else -}}
+    {{- $assetPath = $src -}}
+  {{- end -}}
+
+  {{- with resources.Get $assetPath -}}
+    {{- $resource = . -}}
+    {{- $isProcessable = true -}}
+  {{- end -}}
+
+  {{- if $isProcessable -}}
+    {{/* Hugo resource found: use image processing for width/height */}}
+    {{- $img := $resource -}}
+
+    {{/* Apply resize if Size parameter is provided */}}
+    {{- if $size -}}
+      {{- $img = $resource.Resize (printf "%s %s" $size "Lanczos") -}}
+    {{- end -}}
+
+    <img
+      src="{{ $img.RelPermalink }}"
+      alt="{{ $alt }}"
+      class="{{ $class }}"
+      width="{{ $img.Width }}"
+      height="{{ $img.Height }}"
+      loading="{{ $loading }}"
+      decoding="async"
+    >
+  {{- else -}}
+    {{/* Fallback: static file or external URL */}}
+    {{- $resolvedSrc := $src | absURL -}}
+    <img
+      src="{{ $resolvedSrc }}"
+      alt="{{ $alt }}"
+      class="{{ $class }}"
+      loading="{{ $loading }}"
+      decoding="async"
+    >
+  {{- end -}}
+{{- end -}}
