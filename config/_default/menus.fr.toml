@@ -39,5 +39,5 @@ weight = 1
 
 [[footer]]
 name = "Accessibilité"
-url = "/#accessibilite"
+url = "/accessibilite/"
 weight = 2
