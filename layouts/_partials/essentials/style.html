@@ -60,17 +60,9 @@
 {{ $styles = $styles | append $tailwindCSS }}
 {{ $styles = $styles | resources.Concat "css/style.css" }}
 
-{{ if $stylesLazy }}
-  {{ $stylesLazy = $stylesLazy | resources.Concat "css/style-lazy.css" }}
-{{ else }}
-  {{ $stylesLazy = resources.FromString "css/style-lazy.css" "/* empty */" }}
-{{ end }}
-
 {{ if hugo.IsProduction }}
   {{ $styles = $styles | fingerprint }}
-  {{ $stylesLazy = $stylesLazy | minify | fingerprint }}
 {{ end }}
-
 
 <!-- link main style -->
 <link
@@ -78,10 +70,16 @@
   integrity="{{ $styles.Data.Integrity }}"
   rel="stylesheet" />
 
-<!-- link lazy style -->
-<link
-  rel="stylesheet"
-  href="{{ $stylesLazy.RelPermalink }}"
-  integrity="{{ $stylesLazy.Data.Integrity }}"
-  media="print"
-  onload="this.media='all'; this.onload=null;" />
+<!-- link lazy style — only output if lazy plugins are declared -->
+{{ if $stylesLazy }}
+  {{ $stylesLazy = $stylesLazy | resources.Concat "css/style-lazy.css" }}
+  {{ if hugo.IsProduction }}
+    {{ $stylesLazy = $stylesLazy | minify | fingerprint }}
+  {{ end }}
+  <link
+    rel="stylesheet"
+    href="{{ $stylesLazy.RelPermalink }}"
+    integrity="{{ $stylesLazy.Data.Integrity }}"
+    media="print"
+    onload="this.media='all'; this.onload=null;" />
+{{ end }}

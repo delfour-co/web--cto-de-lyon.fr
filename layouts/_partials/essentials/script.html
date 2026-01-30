@@ -23,15 +23,8 @@
 {{ $scripts = $scripts | append (resources.Get "js/main.js") }}
 {{ $scripts = $scripts | resources.Concat "js/script.js" }}
 
-{{ if $scriptsLazy }}
-  {{ $scriptsLazy = $scriptsLazy | resources.Concat "js/script-lazy.js" }}
-{{ else }}
-  {{ $scriptsLazy = resources.FromString "js/script-lazy.js" "// empty" }}
-{{ end }}
-
 {{ if hugo.IsProduction }}
   {{ $scripts = $scripts | minify | fingerprint }}
-  {{ $scriptsLazy = $scriptsLazy | minify | fingerprint }}
 {{ end }}
 
 {{/* scripts */}}
@@ -40,13 +33,19 @@
   integrity="{{ $scripts.Data.Integrity }}"
   src="{{ $scripts.RelPermalink }}"></script>
 
-{{/* scripts lazy */}}
-<script
-  defer
-  async
-  crossorigin="anonymous"
-  integrity="{{ $scriptsLazy.Data.Integrity }}"
-  src="{{ $scriptsLazy.RelPermalink }}"></script>
+{{/* scripts lazy — only output if lazy plugins are declared */}}
+{{ if $scriptsLazy }}
+  {{ $scriptsLazy = $scriptsLazy | resources.Concat "js/script-lazy.js" }}
+  {{ if hugo.IsProduction }}
+    {{ $scriptsLazy = $scriptsLazy | minify | fingerprint }}
+  {{ end }}
+  <script
+    defer
+    async
+    crossorigin="anonymous"
+    integrity="{{ $scriptsLazy.Data.Integrity }}"
+    src="{{ $scriptsLazy.RelPermalink }}"></script>
+{{ end }}
 
 {{/* Stubs - modules non utilisés */}}
 {{ partialCached "pwa.html" . }}
