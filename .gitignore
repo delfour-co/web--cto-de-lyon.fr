@@ -16,3 +16,10 @@ node_modules/
 # IDE
 .idea/
 .vscode/
+
+# Claude
+.claude/
+
+# Other
+.cursor/
+.tools
