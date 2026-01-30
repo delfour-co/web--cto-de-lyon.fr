@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RepoLens Audit Report - delfour-co/web--cto-de-lyon.fr</title>
+    <style>
+        :root {
+            --critical: #dc3545;
+            --warning: #ffc107;
+            --info: #17a2b8;
+            --success: #28a745;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: #f8f9fa;
+        }
+        header {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        h1 { color: #333; margin-bottom: 1rem; }
+        .meta { color: #666; font-size: 0.9rem; }
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .stat {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .stat-value { font-size: 2rem; font-weight: bold; }
+        .stat-label { color: #666; font-size: 0.9rem; }
+        .stat.critical .stat-value { color: var(--critical); }
+        .stat.warning .stat-value { color: var(--warning); }
+        .stat.info .stat-value { color: var(--info); }
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        .findings { margin-top: 2rem; }
+        .finding {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border-left: 4px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .finding.critical { border-color: var(--critical); }
+        .finding.warning { border-color: var(--warning); }
+        .finding.info { border-color: var(--info); }
+        .finding-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem; }
+        .badge {
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            color: white;
+        }
+        .badge.critical { background: var(--critical); }
+        .badge.warning { background: var(--warning); color: #333; }
+        .badge.info { background: var(--info); }
+        .rule-id { color: #666; font-family: monospace; }
+        .finding-message { font-weight: 500; }
+        .finding-location { margin-top: 0.5rem; color: #666; font-size: 0.9rem; }
+        .finding-location code { background: #f1f1f1; padding: 0.2rem 0.4rem; border-radius: 4px; }
+        .finding-description { margin-top: 0.5rem; color: #555; }
+        .finding-remediation { margin-top: 0.5rem; color: #28a745; }
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        footer a { color: #007bff; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>
+            <span class="status-indicator" style="background: #dc3545"></span>
+            RepoLens Audit Report
+        </h1>
+        <div class="meta">
+            <p><strong>Repository:</strong> delfour-co/web--cto-de-lyon.fr</p>
+            <p><strong>Preset:</strong> opensource</p>
+            <p><strong>Generated:</strong> 2026-01-28 20:16:19 UTC</p>
+            <p><strong>Version:</strong> 0.1.0</p>
+        </div>
+    </header>
+
+    <section class="summary">
+        <div class="stat critical">
+            <div class="stat-value">2</div>
+            <div class="stat-label">Critical</div>
+        </div>
+        <div class="stat warning">
+            <div class="stat-value">32</div>
+            <div class="stat-label">Warnings</div>
+        </div>
+        <div class="stat info">
+            <div class="stat-value">9</div>
+            <div class="stat-label">Info</div>
+        </div>
+    </section>
+
+    <section class="findings">
+        <h2>Findings</h2>
+        <div class="finding critical">
+                    <div class="finding-header">
+                        <span class="badge critical">CRITICAL</span>
+                        <span class="rule-id">SEC001</span>
+                    </div>
+                    <div class="finding-message">URL with Embedded Credentials detected</div>
+                    <div class="finding-location">Location: <code>src/content/datas/index/content.json:9</code></div>
+                    
+                </div><div class="finding critical">
+                    <div class="finding-header">
+                        <span class="badge critical">CRITICAL</span>
+                        <span class="rule-id">SEC001</span>
+                    </div>
+                    <div class="finding-message">URL with Embedded Credentials detected</div>
+                    <div class="finding-location">Location: <code>package-lock.json:23</code></div>
+                    
+                </div><div class="finding warning">
+                    <div class="finding-header">
+                        <span class="badge warning">WARNING</span>
+                        <span class="rule-id">DEP001-GHSA-968p-4wvh-cqc8</span>
+                    </div>
+                    <div class="finding-message">Vulnerability GHSA-968p-4wvh-cqc8 found in @babel/helpers 7.25.9</div>
+                    <div class="finding-location">Location: <code>package-lock.json</code></div>
+                </div><div class="finding warning">
+                    <div class="finding-header">
+                        <span class="badge warning">WARNING</span>
+                        <span class="rule-id">DEP001-GHSA-49w6-73cw-chjr</span>
+                    </div>
+                    <div class="finding-message">Vulnerability GHSA-49w6-73cw-chjr found in astro 4.16.7</div>
+                    <div class="finding-location">Location: <code>package-lock.json</code></div>
+                </div><div class="finding warning">
+                    <div class="finding-header">
+                        <span class="badge warning">WARNING</span>
+                        <span class="rule-id">DEP001-GHSA-5ff5-9fcw-vg88</span>
+                    </div>
+                    <div class="finding-message">Vulnerability GHSA-5ff5-9fcw-vg88 found in astro 4.16.7</div>
+                    <div class="finding-location">Location: <code>package-lock.json</code></div>
+                </div><div class="finding warning">
+                    <div class="finding-header">
+                        <span class="badge warning">WARNING</span>
+                        <span class="rule-id">DEP001-GHSA-c4pw-33h3-35xw</span>
+                    </div>
+                    <div class="finding-message">Vulnerability GHSA-c4pw-33h3-35xw found in astro 4.16.7</div>
+                    <div class="finding-location">Location: <code>package-lock.json</code></div>
+                </div><div class="finding warning">
+                    <div class="finding-header">
+                        <span class="badge warning">WARNING</span>
+                        <span class="rule-id">DEP001-GHSA-fvmw-cj7j-j39q</span>
+                    </div>
+                    <div class="finding-message">Vulnerability GHSA-fvmw-cj7j-j39q found in astro 4.16.7</div>
+                    <div class="finding-location">Location: <code>package-lock.json</code></div>
+                </div><div class="finding warning">
+                    <div class="finding-header">
+                        <span class="badge warning">WARNING</span>
+                        <span class="rule-id">DEP001-GHSA-ggxq-hp9w-j794</span>
+                    </div>
+                    <div class="finding-message">Vulnerability GHSA-ggxq-hp9w-j794 found in astro 4.16.7</div>
+                    <div class="finding-location">Location: <code>package-lock.json</code></div>
+                </div><div class="finding warning">
+                    <div class="finding-header">
+                        <span class="badge warning">WARNING</span>
+                        <span class="rule-id">DEP001-GHSA-hr2q-hp5q-x767</span>
+                    </div>
+                    <div class="finding-message">Vulnerability GHSA-hr2q-hp5q-x767 found in astro 4.16.7</div>
+                    <div class="finding-location">Location: <code>package-lock.json</code></div>
+                </div><div class="finding warning">
+                    <div class="finding-header">
+                        <span class="badge warning">WARNING</span>
+                        <span class="rule-id">DEP001-GHSA-whqg-ppgf-wp8c</span>
+                    </div>
+                    <div class="finding-message">Vulnerability GHSA-whqg-ppgf-wp8c found in astro 4.16.7</div>
+                    <div class="finding-location">Location: <code>package-lock.json</code></div>
+                </div><div class="finding warning">
+                    <div class="finding-header">
+                        <span class="badge warning">WARNING</span>
+                        <span class="rule-id">DEP001-GHSA-wrwg-2hg8-v723</span>
+                    </div>
+                    <div class="finding-message">Vulnerability GHSA-wrwg-2hg8-v723 found in astro 4.16.7</div>
+                    <div class="finding-location">Location: <code>package-lock.json</code></div>
+                </div><div class="finding warning">
+                    <div class="finding-header">
+                        <span class="badge warning">WARNING</span>
+                        <span class="rule-id">DEP001-GHSA-x3h8-62x9-952g</span>
+                    </div>
+                    <div class="finding-message">Vulnerability GHSA-x3h8-62x9-952g found in astro 4.16.7</div>
+                    <div class="finding-location">Location: <code>package-lock.json</code></div>
+                </div><div class="finding warning">
+                    <div class="finding-header">
+                        <span class="badge warning">WARNING</span>
+                        <span class="rule-id">DEP001-GHSA-xf8x-j4p2-f749</span>
+                    </div>
+                    <div class="finding-message">Vulnerability GHSA-xf8x-j4p2-f749 found in astro 4.16.7</div>
+                    <div class="finding-location">Location: <code>package-lock.json</code></div>
+                </div><div class="finding warning">
+                    <div class="finding-header">
+                        <span class="badge warning">WARNING</span>
+                        <span class="rule-id">DEP001-GHSA-v6h2-p8h4-qcjw</span>
+                    </div>
+                    <div class="finding-message">Vulnerability GHSA-v6h2-p8h4-qcjw found in brace-expansion 2.0.1</div>
+                    <div class="finding-location">Location: <code>package-lock.json</code></div>
+                </div><div class="finding warning">
+                    <div class="finding-header">
+                        <span class="badge warning">WARNING</span>
+                        <span class="rule-id">DEP001-GHSA-3xgq-45jj-v275</span>
+                    </div>
+                    <div class="finding-message">Vulnerability GHSA-3xgq-45jj-v275 found in cross-spawn 7.0.3</div>
+                    <div class="finding-location">Location: <code>package-lock.json</code></div>
+                </div><div class="finding warning">
+                    <div class="finding-header">
+                        <span class="badge warning">WARNING</span>
+                        <span class="rule-id">DEP001-GHSA-g2pg-6438-jwpf</span>
+                    </div>
+                    <div class="finding-message">Vulnerability GHSA-g2pg-6438-jwpf found in devalue 5.1.1</div>
+                    <div class="finding-location">Location: <code>package-lock.json</code></div>
+                </div><div class="finding warning">
+                    <div class="finding-header">
+                        <span class="badge warning">WARNING</span>
+                        <span class="rule-id">DEP001-GHSA-vj54-72f3-p5jv</span>
+                    </div>
+                    <div class="finding-message">Vulnerability GHSA-vj54-72f3-p5jv found in devalue 5.1.1</div>
+                    <div class="finding-location">Location: <code>package-lock.json</code></div>
+                </div><div class="finding warning">
+                    <div class="finding-header">
+                        <span class="badge warning">WARNING</span>
+                        <span class="rule-id">DEP001-GHSA-73rr-hh4g-fpgx</span>
+                    </div>
+                    <div class="finding-message">Vulnerability GHSA-73rr-hh4g-fpgx found in diff 5.2.0</div>
+                    <div class="finding-location">Location: <code>package-lock.json</code></div>
+                </div><div class="finding warning">
+                    <div class="finding-header">
+                        <span class="badge warning">WARNING</span>
+                        <span class="rule-id">DEP001-GHSA-67mh-4wv8-2f99</span>
+                    </div>
+                    <div class="finding-message">Vulnerability GHSA-67mh-4wv8-2f99 found in esbuild 0.21.5</div>
+                    <div class="finding-location">Location: <code>package-lock.json</code></div>
+                </div><div class="finding warning">
+                    <div class="finding-header">
+                        <span class="badge warning">WARNING</span>
+                        <span class="rule-id">DEP001-GHSA-5j98-mcp5-4vw2</span>
+                    </div>
+                    <div class="finding-message">Vulnerability GHSA-5j98-mcp5-4vw2 found in glob 10.4.5</div>
+                    <div class="finding-location">Location: <code>package-lock.json</code></div>
+                </div><div class="finding warning">
+                    <div class="finding-header">
+                        <span class="badge warning">WARNING</span>
+                        <span class="rule-id">DEP001-GHSA-mh29-5h37-fv8m</span>
+                    </div>
+                    <div class="finding-message">Vulnerability GHSA-mh29-5h37-fv8m found in js-yaml 3.14.1</div>
+                    <div class="finding-location">Location: <code>package-lock.json</code></div>
+                </div><div class="finding warning">
+                    <div class="finding-header">
+                        <span class="badge warning">WARNING</span>
+                        <span class="rule-id">DEP001-GHSA-xxjr-mmjv-4gpg</span>
+                    </div>
+                    <div class="finding-message">Vulnerability GHSA-xxjr-mmjv-4gpg found in lodash 4.17.21</div>
+                    <div class="finding-location">Location: <code>package-lock.json</code></div>
+                </div><div class="finding warning">
+                    <div class="finding-header">
+                        <span class="badge warning">WARNING</span>
+                        <span class="rule-id">DEP001-GHSA-4fh9-h7wg-q85m</span>
+                    </div>
+                    <div class="finding-message">Vulnerability GHSA-4fh9-h7wg-q85m found in mdast-util-to-hast 13.2.0</div>
+                    <div class="finding-location">Location: <code>package-lock.json</code></div>
+                </div><div class="finding warning">
+                    <div class="finding-header">
+                        <span class="badge warning">WARNING</span>
+                        <span class="rule-id">DEP001-GHSA-mwcw-c2x4-8c55</span>
+                    </div>
+                    <div class="finding-message">Vulnerability GHSA-mwcw-c2x4-8c55 found in nanoid 3.3.7</div>
+                    <div class="finding-location">Location: <code>package-lock.json</code></div>
+                </div><div class="finding warning">
+                    <div class="finding-header">
+                        <span class="badge warning">WARNING</span>
+                        <span class="rule-id">DEP001-GHSA-x7hr-w5r2-h6wg</span>
+                    </div>
+                    <div class="finding-message">Vulnerability GHSA-x7hr-w5r2-h6wg found in prismjs 1.29.0</div>
+                    <div class="finding-location">Location: <code>package-lock.json</code></div>
+                </div><div class="finding warning">
+                    <div class="finding-header">
+                        <span class="badge warning">WARNING</span>
+                        <span class="rule-id">DEP001-GHSA-356w-63v5-8wf4</span>
+                    </div>
+                    <div class="finding-message">Vulnerability GHSA-356w-63v5-8wf4 found in vite 5.4.10</div>
+                    <div class="finding-location">Location: <code>package-lock.json</code></div>
+                </div><div class="finding warning">
+                    <div class="finding-header">
+                        <span class="badge warning">WARNING</span>
+                        <span class="rule-id">DEP001-GHSA-4r4m-qw57-chr8</span>
+                    </div>
+                    <div class="finding-message">Vulnerability GHSA-4r4m-qw57-chr8 found in vite 5.4.10</div>
+                    <div class="finding-location">Location: <code>package-lock.json</code></div>
+                </div><div class="finding warning">
+                    <div class="finding-header">
+                        <span class="badge warning">WARNING</span>
+                        <span class="rule-id">DEP001-GHSA-859w-5945-r5v3</span>
+                    </div>
+                    <div class="finding-message">Vulnerability GHSA-859w-5945-r5v3 found in vite 5.4.10</div>
+                    <div class="finding-location">Location: <code>package-lock.json</code></div>
+                </div><div class="finding warning">
+                    <div class="finding-header">
+                        <span class="badge warning">WARNING</span>
+                        <span class="rule-id">DEP001-GHSA-93m4-6634-74q7</span>
+                    </div>
+                    <div class="finding-message">Vulnerability GHSA-93m4-6634-74q7 found in vite 5.4.10</div>
+                    <div class="finding-location">Location: <code>package-lock.json</code></div>
+                </div><div class="finding warning">
+                    <div class="finding-header">
+                        <span class="badge warning">WARNING</span>
+                        <span class="rule-id">DEP001-GHSA-g4jq-h2w9-997c</span>
+                    </div>
+                    <div class="finding-message">Vulnerability GHSA-g4jq-h2w9-997c found in vite 5.4.10</div>
+                    <div class="finding-location">Location: <code>package-lock.json</code></div>
+                </div><div class="finding warning">
+                    <div class="finding-header">
+                        <span class="badge warning">WARNING</span>
+                        <span class="rule-id">DEP001-GHSA-jqfw-vq24-v9c3</span>
+                    </div>
+                    <div class="finding-message">Vulnerability GHSA-jqfw-vq24-v9c3 found in vite 5.4.10</div>
+                    <div class="finding-location">Location: <code>package-lock.json</code></div>
+                </div><div class="finding warning">
+                    <div class="finding-header">
+                        <span class="badge warning">WARNING</span>
+                        <span class="rule-id">DEP001-GHSA-vg6x-rcgg-rjx6</span>
+                    </div>
+                    <div class="finding-message">Vulnerability GHSA-vg6x-rcgg-rjx6 found in vite 5.4.10</div>
+                    <div class="finding-location">Location: <code>package-lock.json</code></div>
+                </div><div class="finding warning">
+                    <div class="finding-header">
+                        <span class="badge warning">WARNING</span>
+                        <span class="rule-id">DEP001-GHSA-x574-m823-4x7w</span>
+                    </div>
+                    <div class="finding-message">Vulnerability GHSA-x574-m823-4x7w found in vite 5.4.10</div>
+                    <div class="finding-location">Location: <code>package-lock.json</code></div>
+                </div><div class="finding warning">
+                    <div class="finding-header">
+                        <span class="badge warning">WARNING</span>
+                        <span class="rule-id">DEP001-GHSA-xcj6-pq6g-qj4x</span>
+                    </div>
+                    <div class="finding-message">Vulnerability GHSA-xcj6-pq6g-qj4x found in vite 5.4.10</div>
+                    <div class="finding-location">Location: <code>package-lock.json</code></div>
+                </div>
+    </section>
+
+    <footer>
+        <p>Report generated by <a href="https://github.com/kdelfour/repolens">RepoLens</a></p>
+    </footer>
+</body>
+</html>

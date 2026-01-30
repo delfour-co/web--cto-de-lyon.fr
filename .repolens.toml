@@ -38,3 +38,18 @@ automated_security_fixes = true
 [templates]
 
 ["rules.custom"]
+
+["rules.licenses"]
+enabled = true
+allowed_licenses = []
+denied_licenses = []
+
+[cache]
+enabled = true
+max_age_hours = 24
+directory = ".repolens/cache"
+
+[hooks]
+pre_commit = true
+pre_push = true
+fail_on_warnings = false
