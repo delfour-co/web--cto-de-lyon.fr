@@ -1,5 +1,15 @@
 {
   "name": "cto-de-lyon",
+  "version": "1.0.0",
+  "description": "Site web de la communauté des CTO de Lyon",
+  "homepage": "https://cto-de-lyon.fr",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/delfour-co/web--cto-de-lyon.fr.git"
+  },
+  "license": "MIT",
+  "author": "CTO de Lyon <contact@cto-de-lyon.fr>",
+  "keywords": ["cto", "lyon", "communaute", "tech", "hugo"],
   "private": true,
   "scripts": {
     "fetch-events": "node scripts/fetch-luma-events.js",
