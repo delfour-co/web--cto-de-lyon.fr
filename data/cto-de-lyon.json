@@ -1,0 +1,126 @@
+{
+  "hero": {
+    "title": "La Communauté des CTO de Lyon : Un Lieu d'Échanges Tech, Indépendant et Engagé",
+    "content": "Une communauté indépendante pour CTO et leaders tech lyonnais, pensée pour les échanges purement techniques et sans compromis.",
+    "action": {
+      "title": "Rejoignez nous",
+      "url": "https://luma.com/cto-de-lyon?k=c"
+    }
+  },
+  "introduction": {
+    "title": "Un lieu d'échanges Tech, Indépendant et Engagé",
+    "content": [
+      "Bienvenue dans la communauté des CTO de Lyon ! Ici, nous rassemblons les dirigeants techniques, CTO, et autres profils tech de Lyon, engagés et passionnés, autour d'un objectif unique : partager, apprendre, et grandir ensemble. Notre communauté est indépendante de tout groupe, entreprise ou influence extérieure. Nous sommes animés par la passion et l'envie de contribuer à un réseau fort de pairs, sans but lucratif.",
+      "Tous nos membres organisateurs sont bénévoles, et notre communauté fonctionne sans sponsors pour rester libre et fidèle à sa mission : offrir un espace de discussion et de soutien où la technique est sans prospection ni intrusion extérieure. Chez nous, la parole est aux techs."
+    ]
+  },
+  "mission": {
+    "title": "Une mission de Partage et de Collaboration",
+    "content": "La communauté des CTO de Lyon a pour mission de rassembler les talents techniques de la région autour d'une vision commune : favoriser les échanges et l'entraide entre pairs. Ici, vous êtes libres d'échanger sur vos défis technologiques, d'apprendre des expériences de vos pairs et de partager vos propres succès et échecs. C'est un espace où la technique, le leadership et la collaboration prennent tout leur sens.",
+    "items": [
+      {
+        "title": "Indépendant",
+        "content": "Nous ne dépendons d'aucun groupe, cluster ou entreprise ; notre indépendance est notre force."
+      },
+      {
+        "title": "Bénévole",
+        "content": "La communauté est animée par des CTO et tech leaders qui donnent de leur temps pour faire vivre cet espace d'échange."
+      },
+      {
+        "title": "Exclusivité Tech",
+        "content": "Seuls les profils techniques sont invités à participer, pour garantir la qualité et la pertinence de nos échanges."
+      }
+    ]
+  },
+  "aboutUs": {
+    "title": "Les acteurs de la tech Lyonnaise",
+    "content": [
+      "Notre communauté est constituée de CTO, tech leaders, et passionnés de la région lyonnaise qui se retrouvent pour aborder des problématiques concrètes et actuelles.",
+      "Que vous soyez dans une startup, une PME ou une grande entreprise, que vous travailliez sur des projets open source ou propriétaires, vous trouverez ici des experts prêts à échanger des retours d'expérience concrets. Ce qui nous relie, c'est la tech – pure et dure – et le désir de faire progresser nos métiers."
+    ]
+  },
+  "team": {
+    "title": "Notre équipe",
+    "content": "La communauté est animée par une équipe de passionnés qui donnent de leur temps pour faire vivre cette communauté.",
+    "members": [
+      {
+        "fullName": "Xavier Gorse",
+        "role": "Co-fondateur @Elao, @Amabla et @Rix",
+        "imageUrl": "/images/team/xgorse.avif",
+        "linkedin": "https://www.linkedin.com/in/xgorse/"
+      },
+      {
+        "fullName": "Xavier Barry",
+        "role": "CTO CTPO @pHack-Man @Jobo",
+        "imageUrl": "/images/team/xbarry.avif",
+        "linkedin": "https://www.linkedin.com/in/xavierbarry/"
+      },
+      {
+        "fullName": "Yann Verneau",
+        "role": "Co-founder, CTO @Co-CTO",
+        "imageUrl": "/images/team/yverneau.avif",
+        "linkedin": "https://www.linkedin.com/in/yannverneau/"
+      },
+      {
+        "fullName": "Kevin Delfour",
+        "role": "CTO @Shiroo",
+        "imageUrl": "/images/team/kdelfour.avif",
+        "linkedin": "https://www.linkedin.com/in/kevindelfour/"
+      }
+    ]
+  },
+  "events": {
+    "title": "Des événements pour développer vos compétences et partager votre expertise",
+    "content": "Chaque mois, nous organisons des événements techniques ouverts exclusivement aux membres de la communauté CTO de Lyon. Tables rondes, ateliers pratiques, ou études de cas : ces rencontres sont pensées pour stimuler les échanges et offrir des solutions concrètes à des problématiques réelles. Aucune prospection, aucune vente : ici, seule la technique compte."
+  },
+  "joinUs": {
+    "title": "Envie de rejoindre une communauté engagées ?",
+    "content": "Si vous êtes CTO, VP Engineering, ou en charge de la stratégie technique d'une entreprise lyonnaise, la communauté des CTO de Lyon est faite pour vous. Rejoindre notre réseau, c'est avoir accès à des ressources, des retours d'expérience et des conseils de pairs qui comprennent les enjeux uniques de nos métiers. C'est aussi s'engager dans un espace bienveillant et respectueux, conçu pour l'entraide et le partage, sans pression commerciale ni interférence extérieure.",
+    "action": {
+      "title": "Rejoignez nous",
+      "url": "https://luma.com/cto-de-lyon?k=c"
+    },
+    "privacyPolicy": {
+      "content": "Nous nous soucions de la protection de vos données.",
+      "label": "Lire notre politique de confidentialité",
+      "url": "/privacy-policy/"
+    }
+  },
+  "rules": {
+    "title": "Nos règles de conduite",
+    "items": [
+      {
+        "title": "Respect et courtoisie",
+        "content": "Faites preuve de respect et de courtoisie envers tous. Les discussions doivent rester cordiales, même en cas de désaccord."
+      },
+      {
+        "title": "Pas de publicité",
+        "content": "La promotion de produits ou services commerciaux n'est pas autorisée. Les contrevenants seront exclus."
+      },
+      {
+        "title": "Contenu pertinent",
+        "content": "Assurez-vous que tout le contenu partagé est pertinent pour le sujet du management collaboratif."
+      },
+      {
+        "title": "Pas de spam",
+        "content": "Évitez les publications en série ou répétitives. Les membres fautifs seront supprimés"
+      },
+      {
+        "title": "Confidentialité et vie privée",
+        "content": "Respectez la vie privée des autres membres. Ne partagez pas d'informations personnelles sans le consentement explicite des intéressés"
+      },
+      {
+        "title": "Modération",
+        "content": "Les modérateurs se réservent le droit de retirer tout contenu ou membre en cas de non-respect des règles."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "content": "Pour toute question ou suggestion, n'hésitez pas à contacter notre équipe d'animation. Ensemble, enrichissons-nous les uns des autres et façonnons l'avenir de la technologie dans notre région ! 💪",
+    "action": {
+      "title": "Envoyer nous un mail",
+      "url": "mailto:contact@cto-de-lyon.fr"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{{ $title := site.Title }}
+{{ if .Params.meta_title }}
+  {{ $title = .Params.meta_title }}
+{{ else if .Params.title }}
+  {{ $title = .Params.title }}
+{{ end }}
+
+{{ $description := .Summary }}
+{{ if .Params.meta_description }}
+  {{ $description = .Params.meta_description }}
+{{ else if .Params.description }}
+  {{ $description = .Params.description }}
+{{ else if site.Params.metadata.description }}
+  {{ $description = site.Params.metadata.description }}
+{{ end }}
+
+{{ $imagePath := site.Params.metadata.image }}
+{{ if .Params.meta_image }}
+  {{ $imagePath = .Params.meta_image }}
+{{ else if .Params.image }}
+  {{ $imagePath = .Params.image }}
+{{ end }}
+
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $description }}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ .Permalink }}">
+{{ if $imagePath }}
+  <meta property="og:image" content="{{ $imagePath | absURL }}">
+{{ end }}
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ $title }}">
+<meta name="twitter:description" content="{{ $description }}">
+{{ if $imagePath }}
+  <meta name="twitter:image" content="{{ $imagePath | absURL }}">
+{{ end }}

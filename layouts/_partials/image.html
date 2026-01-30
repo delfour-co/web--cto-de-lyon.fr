@@ -1,0 +1,9 @@
+{{ $imagePath := .Src }}
+{{ $class := .Class }}
+{{ $alt := .Alt | default "Image" }}
+{{ $loading := .Loading | default "lazy" }}
+
+{{ if $imagePath }}
+  {{ $src := $imagePath | absURL }}
+  <img src="{{ $src }}" alt="{{ $alt }}" class="{{ $class }}" loading="{{ $loading }}">
+{{ end }}

@@ -1,0 +1,26 @@
+{{ $favicon := site.Params.favicon }}
+
+{{ if $favicon }}
+  {{ if or (hasPrefix $favicon "http") (fileExists (add "static/" (string $favicon))) }}
+    {{ if hasSuffix $favicon ".svg" }}
+    <link rel="icon" href="{{ $favicon | absURL }}" type="image/svg+xml">
+    <link rel="shortcut icon" href="{{ $favicon | absURL }}" type="image/svg+xml">
+    {{ else }}
+    <link rel="shortcut icon" href="{{ $favicon | absURL }}" type="image/x-icon">
+    <link rel="icon" href="{{ $favicon | absURL }}" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="48x48" href="{{ $favicon | absURL }}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ $favicon | absURL }}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ $favicon | absURL }}">
+    {{ end }}
+  {{ else if fileExists (add "assets/" (string $favicon)) }}
+    {{ $faviconRes := resources.Get $favicon }}
+    {{ $favicon_48 := $faviconRes.Resize "48x png" }}
+    {{ $favicon_96 := $faviconRes.Resize "96x png" }}
+    {{ $favicon_144 := $faviconRes.Resize "144x png" }}
+    <link rel="shortcut icon" href="{{ $favicon_96.RelPermalink }}" type="image/x-icon">
+    <link rel="icon" href="{{ $favicon_96.RelPermalink }}" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="48x48" href="{{ $favicon_48.RelPermalink }}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ $favicon_96.RelPermalink }}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ $favicon_144.RelPermalink }}">
+  {{ end }}
+{{ end }}

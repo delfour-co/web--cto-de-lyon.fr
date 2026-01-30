@@ -1,0 +1,39 @@
+<footer class="bg-light dark:bg-darkmode-light">
+  <div class="container">
+    <div class="row items-center py-10">
+      <div class="lg:col-4 mb-8 text-center lg:mb-0 lg:text-left">
+        <a class="navbar-brand inline-block" href="{{ site.Home.RelPermalink }}">
+          {{ partial "logo" }}
+        </a>
+      </div>
+      <div class="lg:col-4 mb-8 text-center lg:mb-0">
+        <h2 class="mb-4 text-sm font-semibold uppercase">Mentions légales</h2>
+        <ul>
+          {{ range site.Menus.footer }}
+          <li class="m-2 inline-block">
+            <a href="{{ .URL | relLangURL }}">{{ .Name }}</a>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+      <div class="lg:col-4 mb-8 text-center lg:mb-0 lg:text-right">
+        <h2 class="mb-4 text-sm font-semibold uppercase">Contact</h2>
+        <a href="mailto:contact@cto-de-lyon.fr">Envoyer nous un mail</a>
+        <ul class="social-icons mt-4">
+          {{ range site.Data.social.main }}
+          <li>
+            <a target="_blank" aria-label="{{ .name }}" rel="nofollow noopener" href="{{ .link | safeURL }}">
+              <i class="{{ .icon }}"></i>
+            </a>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="border-border dark:border-darkmode-border border-t py-7">
+    <div class="text-text-light dark:text-darkmode-text-light container text-center">
+      <p>{{ site.Params.copyright | markdownify }}</p>
+    </div>
+  </div>
+</footer>

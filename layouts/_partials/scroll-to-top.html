@@ -1,0 +1,44 @@
+<button
+  id="scroll-to-top"
+  class="scroll-to-top"
+  type="button"
+  aria-label="Retour en haut de la page"
+  title="Retour en haut">
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+  </svg>
+</button>
+
+<script>
+(function() {
+  // Bouton retour en haut
+  const scrollBtn = document.getElementById('scroll-to-top');
+  if (scrollBtn) {
+    const scrollThreshold = 300;
+
+    function toggleVisibility() {
+      if (window.scrollY > scrollThreshold) {
+        scrollBtn.classList.add('visible');
+      } else {
+        scrollBtn.classList.remove('visible');
+      }
+    }
+
+    scrollBtn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    window.addEventListener('scroll', toggleVisibility, { passive: true });
+    toggleVisibility();
+  }
+
+  // Fermer le menu mobile au clic sur un lien d'ancrage du menu
+  const navToggle = document.getElementById('nav-toggle');
+  document.querySelectorAll('#nav-menu a[href*="#"]').forEach(function(link) {
+    link.addEventListener('click', function() {
+      if (navToggle && navToggle.checked) {
+        navToggle.checked = false;
+      }
+    });
+  });
+})();
+</script>

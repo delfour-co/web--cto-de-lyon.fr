@@ -1,0 +1,32 @@
+{
+  "events": [
+    {
+      "name": "Afterwork des CTOs",
+      "startAt": "2026-02-24T17:30:00.000Z",
+      "formattedDate": "mardi 24 février 2026 à 18:30",
+      "city": "Lyon",
+      "url": "https://lu.ma/cto-de-lyon/s4b7mykl",
+      "coverUrl": "https://images.lumacdn.com/event-covers/x2/3011484f-42b2-4d3e-a343-e2ca8dc2b155.png",
+      "tag": "Afterwork"
+    },
+    {
+      "name": "Forum - Open Space",
+      "startAt": "2026-03-26T17:30:00.000Z",
+      "formattedDate": "jeudi 26 mars 2026 à 18:30",
+      "city": "Lyon",
+      "url": "https://lu.ma/cto-de-lyon/8ospa0pb",
+      "coverUrl": "https://images.lumacdn.com/event-covers/8o/d18c416d-1941-4ae3-a442-71c37940724f.png",
+      "tag": "Forum"
+    },
+    {
+      "name": "Forum - Echange thématique",
+      "startAt": "2026-04-21T16:30:00.000Z",
+      "formattedDate": "mardi 21 avril 2026 à 18:30",
+      "city": "Lyon",
+      "url": "https://lu.ma/cto-de-lyon/hul1c3eh",
+      "coverUrl": "https://images.lumacdn.com/event-covers/8o/d18c416d-1941-4ae3-a442-71c37940724f.png",
+      "tag": "Forum"
+    }
+  ],
+  "fetchedAt": "2026-01-30T15:30:07.911Z"
+}

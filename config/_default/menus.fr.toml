@@ -1,0 +1,43 @@
+############# Navigation principale (comme cto-de-lyon.fr) ##############
+
+[[main]]
+name = "Notre mission"
+url = "/#mission"
+weight = 1
+
+[[main]]
+name = "Notre équipe"
+url = "/#team"
+weight = 2
+
+[[main]]
+name = "Évènements"
+url = "/#events"
+weight = 3
+
+[[main]]
+name = "Nous rejoindre"
+url = "/#join-us"
+weight = 4
+
+[[main]]
+name = "Lancer sa communauté"
+url = "/lancer-sa-communaute/"
+weight = 5
+
+[[main]]
+name = "Manifeste"
+url = "/manifeste/"
+weight = 6
+
+############# Menu footer ##############
+
+[[footer]]
+name = "Politique de confidentialité"
+url = "/privacy-policy/"
+weight = 1
+
+[[footer]]
+name = "Accessibilité"
+url = "/#accessibilite"
+weight = 2

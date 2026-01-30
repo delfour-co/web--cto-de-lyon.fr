@@ -1,0 +1,236 @@
+{{ define "main" }}
+  {{ $data := index site.Data "cto-de-lyon" }}
+
+  <!-- Hero -->
+  {{ with $data.hero }}
+  <section id="hero" class="section pt-14">
+    <div class="container">
+      <div class="row items-center justify-between">
+        <div class="lg:col-5 mb-8 lg:mb-0 order-1 flex justify-center">
+          {{ partial "image" (dict "Src" "/images/logo.png" "Class" "max-w-[240px] md:max-w-[280px] lg:max-w-[320px]" "Alt" "CTO de Lyon - Logo" "Loading" "eager") }}
+        </div>
+        <div class="lg:col-7 mb-8 lg:mb-0 order-2 text-center lg:text-left">
+          <h1 class="mb-4 text-h3 lg:text-h1">{{ .title }}</h1>
+          <p class="mb-8">{{ .content }}</p>
+          <a class="btn btn-primary" href="{{ .action.url }}" target="_blank" rel="noopener">{{ .action.title }}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  {{ end }}
+
+  <!-- Introduction -->
+  {{ with $data.introduction }}
+  <section class="section-sm bg-gradient">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-10 text-center">
+          <h2 class="mb-6">{{ .title | markdownify }}</h2>
+          {{ range .content }}
+          <p class="mb-4 text-lg">{{ . }}</p>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </section>
+  {{ end }}
+
+  <!-- Mission -->
+  {{ with $data.mission }}
+  <section id="mission" class="section-sm">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-10">
+          <h2 class="mb-6 text-center">{{ .title | markdownify }}</h2>
+          <p class="mb-10 text-center text-lg">{{ .content }}</p>
+          <div class="row">
+            {{ range .items }}
+            <div class="md:col-4 mb-8">
+              <div class="bg-light dark:bg-darkmode-light rounded-lg p-6 h-full">
+                <h3 class="mb-3">{{ .title }}</h3>
+                <p>{{ .content }}</p>
+              </div>
+            </div>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {{ end }}
+
+  <!-- About Us - Les acteurs de la tech Lyonnaise -->
+  {{ with $data.aboutUs }}
+  <section class="section-sm bg-gradient">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-10">
+          <h2 class="mb-6 text-center">{{ .title | markdownify }}</h2>
+          {{ range .content }}
+          <p class="mb-4 text-center text-lg">{{ . }}</p>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </section>
+  {{ end }}
+
+  <!-- Team -->
+  {{ with $data.team }}
+  <section id="team" class="section">
+    <div class="container">
+      {{ with .image }}
+      <div class="row justify-center mb-8">
+        <div class="lg:col-10 text-center">
+          {{ partial "image" (dict "Src" . "Size" "960x540" "Class" "rounded-lg mx-auto w-full max-w-3xl" "Alt" "Notre équipe") }}
+        </div>
+      </div>
+      {{ end }}
+      <div class="row justify-center mb-12">
+        <div class="lg:col-8 text-center">
+          <h2 class="mb-4">{{ .title }}</h2>
+          <p>{{ .content }}</p>
+        </div>
+      </div>
+      <div class="row">
+        {{ range .members }}
+        {{ $member := . }}
+        <div class="md:col-6 lg:col-3 mb-8">
+          <div class="text-center">
+            {{ partial "image" (dict "Src" .imageUrl "Size" "200x200" "Class" "rounded-full mx-auto mb-4" "Alt" .fullName) }}
+            <h3 class="h5 mb-2">{{ .fullName }}</h3>
+            <p class="text-text-light dark:text-darkmode-text-light mb-3">{{ .role }}</p>
+            {{ with .linkedin }}
+            <a href="{{ . }}" target="_blank" rel="noopener" aria-label="LinkedIn {{ $member.fullName }}">
+              <i class="fab fa-linkedin text-xl"></i>
+            </a>
+            {{ end }}
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+  {{ end }}
+
+  <!-- Events -->
+  {{ with $data.events }}
+  <section id="events" class="section-sm bg-gradient">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-10">
+          <h2 class="mb-6 text-center">{{ .title }}</h2>
+          <p class="text-center text-lg mb-8">{{ .content }}</p>
+          {{ $lumaEvents := index site.Data "luma-events" }}
+          {{ if and $lumaEvents $lumaEvents.events }}
+          <div class="row">
+            {{ range $lumaEvents.events }}
+            <div class="md:col-6 lg:col-4 mb-8">
+              <article class="bg-light dark:bg-darkmode-light rounded-xl overflow-hidden shadow-md hover:shadow-xl dark:hover:ring-2 dark:hover:ring-darkmode-primary/50 transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
+                <a href="{{ .url }}" target="_blank" rel="noopener" class="block group h-full flex flex-col">
+                  <div class="relative aspect-video overflow-hidden bg-body dark:bg-darkmode-body">
+                    {{ if .coverUrl }}
+                    <img src="{{ .coverUrl }}" alt="{{ .name }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+                    {{ else }}
+                    <div class="w-full h-full flex items-center justify-center bg-primary/10 dark:bg-darkmode-primary/10">
+                      <i class="fa-regular fa-calendar text-4xl text-primary dark:text-darkmode-primary opacity-50"></i>
+                    </div>
+                    {{ end }}
+                  </div>
+                  <div class="p-6 flex-1 flex flex-col">
+                    {{ if .tag }}
+                    <div class="flex justify-center mb-3">
+                      <span class="inline-block rounded-full bg-primary/10 dark:bg-darkmode-primary/10 text-primary dark:text-darkmode-primary px-4 py-1.5 text-xs font-semibold uppercase tracking-wide">
+                        {{ .tag }}
+                      </span>
+                    </div>
+                    {{ end }}
+                    <h3 class="h5 mb-3 group-hover:text-primary dark:group-hover:text-darkmode-primary transition-colors line-clamp-2">{{ .name }}</h3>
+                    <p class="text-sm text-text-light dark:text-darkmode-text-light mb-2 flex items-center gap-2">
+                      <i class="fa-regular fa-clock w-4 text-center"></i>
+                      <time datetime="{{ .startAt }}">{{ .formattedDate }}</time>
+                    </p>
+                    <p class="text-sm text-text-light dark:text-darkmode-text-light mb-4 flex items-center gap-2">
+                      <i class="fa-regular fa-location-dot w-4 text-center"></i>
+                      {{ .city }}
+                    </p>
+                    <span class="mt-auto inline-flex items-center gap-2 text-primary dark:text-darkmode-primary text-sm font-medium group-hover:gap-3 group-hover:text-primary/90 dark:group-hover:text-darkmode-primary transition-all">
+                      S'inscrire sur Luma
+                      <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </span>
+                  </div>
+                </a>
+              </article>
+            </div>
+            {{ end }}
+          </div>
+          {{ else }}
+          <p class="text-center text-text-light dark:text-darkmode-text-light">
+            Aucun événement à venir pour le moment.
+            <a href="https://lu.ma/cto-de-lyon" target="_blank" rel="noopener">Voir le calendrier sur Luma</a>.
+          </p>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </section>
+  {{ end }}
+
+  <!-- Join Us -->
+  {{ with $data.joinUs }}
+  <section id="join-us" class="section">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-8 text-center">
+          <h2 class="mb-6">{{ .title }}</h2>
+          <p class="mb-8 text-lg">{{ .content }}</p>
+          <a class="btn btn-primary mb-6" href="{{ .action.url }}" target="_blank" rel="noopener">{{ .action.title }}</a>
+          <p class="text-sm">
+            {{ .privacyPolicy.content }}
+            <a href="{{ .privacyPolicy.url }}">{{ .privacyPolicy.label }}</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  {{ end }}
+
+  <!-- Rules -->
+  {{ with $data.rules }}
+  <section class="section-sm bg-gradient">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-10">
+          <h2 class="mb-8 text-center">{{ .title }}</h2>
+          <div class="row">
+            {{ range .items }}
+            <div class="md:col-6 lg:col-4 mb-6">
+              <div class="bg-light dark:bg-darkmode-light rounded-lg p-6 h-full">
+                <h3 class="h5 mb-3">{{ .title }}</h3>
+                <p class="text-sm">{{ .content }}</p>
+              </div>
+            </div>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {{ end }}
+
+  <!-- Contact -->
+  {{ with $data.contact }}
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-8 text-center">
+          <h2 class="mb-6">{{ .title }}</h2>
+          <p class="mb-8 text-lg">{{ .content }}</p>
+          <a class="btn btn-primary" href="{{ .action.url }}">{{ .action.title }}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  {{ end }}
+
+{{ end }}
