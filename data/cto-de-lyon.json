@@ -46,25 +46,25 @@
       {
         "fullName": "Xavier Gorse",
         "role": "Co-fondateur @Elao, @Amabla et @Rix",
-        "imageUrl": "/images/team/xgorse.avif",
+        "imageUrl": "/images/team/xgorse.webp",
         "linkedin": "https://www.linkedin.com/in/xgorse/"
       },
       {
         "fullName": "Xavier Barry",
         "role": "CTO CTPO @pHack-Man @Jobo",
-        "imageUrl": "/images/team/xbarry.avif",
+        "imageUrl": "/images/team/xbarry.webp",
         "linkedin": "https://www.linkedin.com/in/xavierbarry/"
       },
       {
         "fullName": "Yann Verneau",
         "role": "Co-founder, CTO @Co-CTO",
-        "imageUrl": "/images/team/yverneau.avif",
+        "imageUrl": "/images/team/yverneau.webp",
         "linkedin": "https://www.linkedin.com/in/yannverneau/"
       },
       {
         "fullName": "Kevin Delfour",
         "role": "CTO @Shiroo",
-        "imageUrl": "/images/team/kdelfour.avif",
+        "imageUrl": "/images/team/kdelfour.webp",
         "linkedin": "https://www.linkedin.com/in/kevindelfour/"
       }
     ]
