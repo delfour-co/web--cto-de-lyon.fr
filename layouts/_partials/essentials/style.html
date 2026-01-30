@@ -5,19 +5,38 @@
 <link rel="dns-prefetch" href="//fonts.googleapis.com" />
 
 <!-- google fonts -->
-{{ $pf:= site.Data.theme.fonts.font_family.primary }}
-{{ $sf:= site.Data.theme.fonts.font_family.secondary }}
+{{ $pf := site.Data.theme.fonts.font_family.primary }}
+{{ $sf := site.Data.theme.fonts.font_family.secondary }}
+{{ $pf_name := index (split $pf ":") 0 }}
+{{ $sf_name := index (split $sf ":") 0 }}
+{{ $pf_type := site.Data.theme.fonts.font_family.primary_type | default "sans-serif" }}
+{{ $sf_type := site.Data.theme.fonts.font_family.secondary_type | default "sans-serif" }}
+{{ $fontsURL := printf "https://fonts.googleapis.com/css2?family=%s%s&display=swap" ($pf | safeURL) (cond (ne $sf "") (printf "&family=%s" ($sf | safeURL)) "") }}
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<script>
-  (function () {
-    const googleFont = document.createElement("link");
-    googleFont.href = "https://fonts.googleapis.com/css2?family={{$pf | safeURL}}{{with $sf}}&family={{. | safeURL}}{{end}}&display=swap";
-    googleFont.type = "text/css";
-    googleFont.rel = "stylesheet";
-    document.head.appendChild(googleFont);
-  })();
-</script>
+
+<!-- preload primary font stylesheet -->
+<link rel="preload" as="style" href="{{ $fontsURL }}" />
+
+<!-- non-blocking font stylesheet: loads asynchronously via media swap -->
+<link
+  rel="stylesheet"
+  href="{{ $fontsURL }}"
+  media="print"
+  onload="this.media='all'; this.onload=null;" />
+
+<!-- fallback for browsers with JS disabled -->
+<noscript>
+  <link rel="stylesheet" href="{{ $fontsURL }}" />
+</noscript>
+
+<!-- font-display fallback: show text immediately with system font stack -->
+<style>
+  :root {
+    --font-primary-fallback: {{ $pf_type }};
+    --font-secondary-fallback: {{ $sf_type }};
+  }
+</style>
 
 <!-- main styles -->
 {{ $styles := slice }}
