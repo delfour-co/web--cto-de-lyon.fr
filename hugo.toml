@@ -3,6 +3,7 @@ languageCode = 'fr-fr'
 title = 'CTO de Lyon'
 defaultContentLanguage = 'fr'
 theme = 'hugoplate'
+disableKinds = ['taxonomy', 'term']
 
 [outputs]
 home = ["HTML", "RSS"]

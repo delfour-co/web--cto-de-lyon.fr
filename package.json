@@ -4,7 +4,7 @@
   "scripts": {
     "fetch-events": "node scripts/fetch-luma-events.js",
     "prebuild": "npm run fetch-events",
-    "build": "hugo",
+    "build": "hugo --gc --minify",
     "dev": "npm run fetch-events && hugo server"
   },
   "devDependencies": {
