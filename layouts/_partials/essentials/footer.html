@@ -23,7 +23,7 @@
           {{ range site.Data.social.main }}
           <li>
             <a target="_blank" aria-label="{{ .name }}" rel="nofollow noopener" href="{{ .link | safeURL }}">
-              <i class="{{ .icon }}"></i>
+              {{ partial "icon" (dict "name" .name "class" "w-5 h-5") }}
             </a>
           </li>
           {{ end }}
